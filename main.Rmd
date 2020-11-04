@@ -44,6 +44,14 @@ view(chaff2)
 
 ```
 
+############ create a function ################
+```{r}
+#sum squared function made
+sum_sq <- function(df, measure) {
+  df %>% summarise(ss = sum(({{measure}} - mean({{measure}}))^2))
+}
+sum_sq(chaff2, mass)
+```
 
 
 # Discussion
