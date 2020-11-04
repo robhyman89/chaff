@@ -24,6 +24,7 @@ This is the introduction to chaffinches.
 These are the methods for weighing and sexing the chaffinches.
 
 # Results
+############ data import #############
 ```{r}
 file <-  "raw-data/chaff.txt"
 write.table(chaff, 
@@ -31,6 +32,18 @@ write.table(chaff,
             quote = FALSE,
             row.names = FALSE)
 ```
+
+############# tidy data ############
+```{r}
+#tidy data
+chaff2<- chaff%>% 
+  pivot_longer(names_to = "sex", 
+               values_to = "mass",
+               cols = everything())
+view(chaff2)
+
+```
+
 
 
 # Discussion
