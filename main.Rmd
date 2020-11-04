@@ -61,6 +61,16 @@ sum_sq2 <- function(df, measure, group) {
 
 sum_sq2(chaff2, mass, sex)
 ```
+########### summarising data ##############
+```{r}
+datasum <- chaff2 %>%
+  group_by(sex) %>%
+  summarise(mean = mean(mass),
+            std = sd(mass),
+            n = length(mass),
+            se = std/sqrt(n))
+datasum
+```
 
 
 # Discussion
