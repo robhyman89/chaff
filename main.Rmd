@@ -1,5 +1,5 @@
 ---
-title: "main"
+title: "Chaffinches"
 author: "Rob Hyman"
 date: "04/11/2020"
 output: html_document
@@ -16,3 +16,13 @@ knitr::opts_chunk$set(echo = FALSE,
 library(tidyverse)
 library(bookdown)
 ```
+
+# Introduction
+This is the introduction to chaffinches.
+
+# Methods
+These are the methods for weighing and sexing the chaffinches.
+
+# Results
+
+# Discussion
