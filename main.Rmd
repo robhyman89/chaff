@@ -1,6 +1,6 @@
 ---
 title: "Chaffinches"
-author: "Rob Hyman"
+author: "Rob and Caitlin"
 date: "04/11/2020"
 output:
   html_document:
@@ -28,7 +28,7 @@ library(citr)
 # Introduction
 This is the introduction to chaffinches [@peterson_mountfort_hollom_wallace_2004] see figure \@ref(fig:chaffy)
 
-(ref:chaffy) chaffinches are cute. By Photo © Andreas Trepte, CC BY-SA 3.0, https://en.wikipedia.org/wiki/Common_chaffinch#/media/File:Chaffinch_(Fringilla_coelebs).jpg
+(ref:chaffy) chaffinches are cute. By Photo © Andreas Trepte, CC BY-SA 3.0, [@common_chaffinch_2020], https://en.wikipedia.org/wiki/Common_chaffinch#/media/File:Chaffinch_(Fringilla_coelebs).jpg 
 
 ```{r chaffy, out.height="200px", fig.cap='(ref:chaffy)'}
 knitr::include_graphics("chaffy.jpg")
@@ -41,7 +41,7 @@ These are the methods for weighing and sexing the chaffinches.
 
 ```{r, include=FALSE}
 #data import
-chaff <- read_table2("raw-data/chaff.txt")
+chaff <- read_table2("raw-data/more_chaff.txt")
 
 class(chaff)
 
@@ -98,7 +98,7 @@ t.test(males, females, paired = TRUE)
 ```
 there was a significant difference between the masses of the two sexes p = 0.01492.
 
-```{r myo-fig, fig.height=4, fig.width=4, fig.cap="(ref:myo-fig)"}
+```{r myo-fig, fig.height=4, fig.width=4, fig.cap="(ref:myo-fig. this is a figure showing differences in mass)"}
 # making a graph
 ggplot() +
   geom_point(data = chaff2, aes(x = sex, y = mass),
@@ -129,6 +129,10 @@ ggplot() +
   theme_classic() +
   theme(axis.title = element_text(size  = 10),
         axis.text = element_text(size = 10))
+```
+
+```{r, include=FALSE}
+theme_gray
 ```
 
 # Discussion
