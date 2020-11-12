@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.retina = 3)
 ```
 
-```{r packages}
+```{r packages, include=FALSE}
 library(tidyverse)
 library(bookdown)
 ```
@@ -24,17 +24,17 @@ This is the introduction to chaffinches.
 These are the methods for weighing and sexing the chaffinches.
 
 # Results
+
+```{r, include=FALSE}
 ############ data import #############
-```{r}
-file <-  "raw-data/chaff.txt"
-write.table(chaff, 
-            file, 
-            quote = FALSE,
-            row.names = FALSE)
+chaff <- read_table2("raw-data/chaff.txt")
+
+class(chaff)
+
 ```
 
-############# tidy data ############
-```{r}
+
+```{r, include=FALSE}
 #tidy data
 chaff2<- chaff%>% 
   pivot_longer(names_to = "sex", 
@@ -44,16 +44,18 @@ view(chaff2)
 
 ```
 
+
+```{r, include=FALSE}
 ############ create a function ################
-```{r}
 #sum squared function made
 sum_sq <- function(df, measure) {
   df %>% summarise(ss = sum(({{measure}} - mean({{measure}}))^2))
 }
 sum_sq(chaff2, mass)
 ```
+
+```{r, include=FALSE}
 ####### adopt function to calculate SS(x) for each group ####
-```{r}
 sum_sq2 <- function(df, measure, group) {
   df %>% group_by({{ group }}) %>% 
     summarise(ss = sum(({{measure}} - mean({{measure}}))^2))
@@ -61,8 +63,9 @@ sum_sq2 <- function(df, measure, group) {
 
 sum_sq2(chaff2, mass, sex)
 ```
+
+```{r, include=FALSE}
 ########### summarising data ##############
-```{r}
 datasum <- chaff2 %>%
   group_by(sex) %>%
   summarise(mean = mean(mass),
@@ -74,3 +77,6 @@ datasum
 
 
 # Discussion
+
+
+# References
