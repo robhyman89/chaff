@@ -2,7 +2,14 @@
 title: "Chaffinches"
 author: "Rob Hyman"
 date: "04/11/2020"
-output: html_document
+output:
+  html_document:
+    df_print: paged
+  bookdown::pdf_document2: default
+  bookdown::word_document2: default
+  bookdown::html_document2: default
+  word_document: default
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -15,10 +22,17 @@ knitr::opts_chunk$set(echo = FALSE,
 ```{r packages, include=FALSE}
 library(tidyverse)
 library(bookdown)
+library(citr)
 ```
 
 # Introduction
-This is the introduction to chaffinches.
+This is the introduction to chaffinches [@peterson_mountfort_hollom_wallace_2004] see figure \@ref(fig:chaffy)
+
+(ref:chaffy) chaffinches are cute. By Photo © Andreas Trepte, CC BY-SA 3.0, https://en.wikipedia.org/wiki/Common_chaffinch#/media/File:Chaffinch_(Fringilla_coelebs).jpg
+
+```{r chaffy, out.height="200px", fig.cap='(ref:chaffy)'}
+knitr::include_graphics("chaffy.jpg")
+```
 
 # Methods
 These are the methods for weighing and sexing the chaffinches.
